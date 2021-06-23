@@ -7,12 +7,16 @@ type CalcButton = {
 }
 
 type SwitchLikeRadioProps = {
-    onRadioChange: (value: any) => void
+    onRadioChange: (value: any) => void,
+    duration?: number,
+    name?: string,
+    value: any,
 }
 type SwitchLikeRadioItemProps = {
-    onRadioChange?: (value: any, order?: number) => void,
+    onRadioChange?: (value: any, order: number) => void,
     name?: string,
     order?: number,
-    label: string,
+    label: string|number,
     value: any,
+    id?: number|string,
 }

@@ -113,7 +113,7 @@ body, html {
 .radio-item input {
     margin: 0;
     padding: 0;
-    width: 15px;
+    width: 18px;
     height: 13px;
     appearance: none;
 }
@@ -141,14 +141,14 @@ body, html {
 .radio-item-label {
     position: absolute;
     bottom: 100%; left: 50%;
-    transform: translate(0, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .radio-indicator {
     top: 50%; left: 0;
     position: absolute;
     border-radius: 100%;
-    background-color: red;
+    background-color: var(--key-background-2);
     width: 13px; height: 13px;
     transform: translate(0%, -50%);
 }

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { sortedKeyboardItems, themes } from '../static'
+import { switchTheme } from '../utils';
 import { makeCalculatorLogic } from './logic'
 import {SwitchLikeRadio, SwitchLikeRadioItem} from './SwitchLikeRadio'
 
@@ -10,15 +11,28 @@ export const Calculator = () => {
 
     const btnClick = makeCalculatorLogic (setPredicate, setText)
 
+    useEffect(() => {
+        // Use dark theme by default because light theme is CRINGE
+        // setTimeout(() => {
+        //     setCurrTheme ('theme-contrast')
+        // }, 1000);
+    }, [])
+
+    useEffect(() => {
+        switchTheme (currTheme)
+    }, [currTheme])
+
     return (
         <div className="calculator">
             <div className="calculator-header">
                 <span>{currTheme}</span>
                 <div className="">
-                    <SwitchLikeRadio onRadioChange={setCurrTheme}>
-                        <SwitchLikeRadioItem label="X" value="test1"/>
-                        <SwitchLikeRadioItem label="D" value="test2"/>
-                        <SwitchLikeRadioItem label="2" value="test2"/>
+                    <SwitchLikeRadio onRadioChange={setCurrTheme} value={currTheme}>
+                        {
+                            themes.map((theme, index) => {
+                                return <SwitchLikeRadioItem label={index+1} value={theme} key={index}/>
+                            })
+                        }
                     </SwitchLikeRadio>
                 </div>
             </div>
