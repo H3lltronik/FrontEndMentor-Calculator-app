@@ -17,9 +17,12 @@ body, html {
     max-width: 550px;
 }
 
-.calculator {
-
+.calculator-header {
+    display: flex;
+    margin: 10px 10px;
+    justify-content: space-between;
 }
+
 .calculator-result {
     height: 150px;
     display: flex;
@@ -95,4 +98,58 @@ body, html {
 .button-result {
     grid-column-start: 3;
     grid-column-end: 5;
+}
+
+
+/* RADIO LIKE SWITCH */
+.radio {
+    display: flex;
+}
+
+.radio-label {
+    margin-right: 20px;
+}
+
+.radio-item input {
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 13px;
+    appearance: none;
+}
+
+.radio-wrapper {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 5px);
+}
+
+.radio-group {
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-radius: 25px;
+    justify-content: center;
+    background-color: var(--toggle-background);
+}
+
+.radio-item {
+    top: 2px;
+    z-index: 10;
+    position: relative;
+}
+
+.radio-item-label {
+    position: absolute;
+    bottom: 100%; left: 50%;
+    transform: translate(0, -50%);
+}
+
+.radio-indicator {
+    top: 50%; left: 0;
+    position: absolute;
+    border-radius: 100%;
+    background-color: red;
+    width: 13px; height: 13px;
+    transform: translate(0%, -50%);
 }
