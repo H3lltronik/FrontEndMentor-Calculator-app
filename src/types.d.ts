@@ -1,0 +1,1 @@
+type CalculatorOperation = (a: string, b: string) => number|string
