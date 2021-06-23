@@ -16,7 +16,7 @@ export const SwitchLikeRadio : FC<SwitchLikeRadioProps> = (props) => {
         let deltaOrder = Math.abs(lastOrder - order)
         props.onRadioChange (value)
         lastValue = value
-        if (lastStep >= 0 && lastStep <= 100) {
+        if (lastStep >= 0 && lastStep <= (100 - animStep)) {
             if (lastOrder > order) {
                 lastStep -= (animStep * deltaOrder);
             } else if (lastOrder < order) {
@@ -44,15 +44,11 @@ export const SwitchLikeRadio : FC<SwitchLikeRadioProps> = (props) => {
     useEffect(() => {
         radiosQnt = React.Children.toArray(props.children).length
         animStep = Number( (100 / radiosQnt).toFixed(2) );
-
-        // setTimeout(() => {
-        //     console.log("ay wey gorditas de nata", childrenProps)
-        // }, 1000);
     }, [])
 
     return (
         <div className="radio">
-            <span className="radio-label">Theme</span>
+            <span className="radio-label">{props.label}</span>
                 <div className="radio-group">
                     {React.Children.map(props.children, (child:any, index) => {
                         const childProps = {

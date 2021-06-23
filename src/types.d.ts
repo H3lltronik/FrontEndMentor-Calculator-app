@@ -10,6 +10,7 @@ type SwitchLikeRadioProps = {
     onRadioChange: (value: any) => void,
     duration?: number,
     name?: string,
+    label?: string,
     value: any,
 }
 type SwitchLikeRadioItemProps = {

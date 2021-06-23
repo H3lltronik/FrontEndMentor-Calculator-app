@@ -13,9 +13,7 @@ export const Calculator = () => {
 
     useEffect(() => {
         // Use dark theme by default because light theme is CRINGE
-        // setTimeout(() => {
-        //     setCurrTheme ('theme-contrast')
-        // }, 1000);
+        setCurrTheme ('theme-dark')
     }, [])
 
     useEffect(() => {
@@ -25,9 +23,9 @@ export const Calculator = () => {
     return (
         <div className="calculator">
             <div className="calculator-header">
-                <span>{currTheme}</span>
+                <span className="calculator-title">calc</span>
                 <div className="">
-                    <SwitchLikeRadio onRadioChange={setCurrTheme} value={currTheme}>
+                    <SwitchLikeRadio onRadioChange={setCurrTheme} value={currTheme} label={"THEME"}>
                         {
                             themes.map((theme, index) => {
                                 return <SwitchLikeRadioItem label={index+1} value={theme} key={index}/>
