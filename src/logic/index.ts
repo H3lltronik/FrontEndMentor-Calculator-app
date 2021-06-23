@@ -4,7 +4,7 @@ export class CalculatorLogic {
     currShowingVal: 'first'|'against' = 'first';
     operation: CalculatorOperation|null = null;
 
-    add = (char: string) => {
+    add = (char: string) => { 
         let editingVal = null
         if (this.currShowingVal == 'first') editingVal = this.baseValue
         else if (this.currShowingVal == 'against') editingVal = this.againstValue
