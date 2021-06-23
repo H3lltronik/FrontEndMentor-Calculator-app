@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { sortedKeyboardItems, themes } from '../static'
 import { makeCalculatorLogic } from './logic'
-import {SwitchLikeRadio} from './SwitchLikeRadio'
+import {SwitchLikeRadio, SwitchLikeRadioItem} from './SwitchLikeRadio'
 
 export const Calculator = () => {
     const [text, setText] = useState<string>("0")
@@ -15,7 +15,11 @@ export const Calculator = () => {
             <div className="calculator-header">
                 <span>{currTheme}</span>
                 <div className="">
-                    <SwitchLikeRadio onRadioChange={setCurrTheme}></SwitchLikeRadio>
+                    <SwitchLikeRadio onRadioChange={setCurrTheme}>
+                        <SwitchLikeRadioItem label="X" value="test1"/>
+                        <SwitchLikeRadioItem label="D" value="test2"/>
+                        <SwitchLikeRadioItem label="2" value="test2"/>
+                    </SwitchLikeRadio>
                 </div>
             </div>
 

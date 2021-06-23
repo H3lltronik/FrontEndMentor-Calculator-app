@@ -134,7 +134,6 @@ body, html {
 }
 
 .radio-item {
-    top: 2px;
     z-index: 10;
     position: relative;
 }
