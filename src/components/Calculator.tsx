@@ -8,8 +8,9 @@ export const Calculator = () => {
     const [text, setText] = useState<string>("0")
     const [predicate, setPredicate] = useState<string|null>(null)
     const [currTheme, setCurrTheme] = useState<string>(themes[0])
+    const [error, setError] = useState<boolean>(false)
 
-    const btnClick = makeCalculatorLogic (setPredicate, setText)
+    const btnClick = makeCalculatorLogic (setPredicate, setText, setError)
 
     useEffect(() => {
         // Use dark theme by default because light theme is CRINGE
@@ -20,8 +21,13 @@ export const Calculator = () => {
         switchTheme (currTheme)
     }, [currTheme])
 
+    useEffect(() => {
+        if (error) {
+        }
+    }, [error])
+
     return (
-        <div className="calculator">
+        <div className={`calculator ${error? 'calculator--error':''}`}>
             <div className="calculator-header">
                 <span className="calculator-title">calc</span>
                 <div className="">
@@ -39,7 +45,7 @@ export const Calculator = () => {
 
             <div className="calculator-keyboard">
                 { sortedKeyboardItems.map ((item, index) => {
-                    return <button onClick={() => {btnClick(predicate, item)}} key={index}
+                    return <button onClick={() => {btnClick(predicate, item, error)}} key={index}
                     className={`calculator-button ${item.extraClass}`}>
                         <span>{item.label}</span>
                     </button>

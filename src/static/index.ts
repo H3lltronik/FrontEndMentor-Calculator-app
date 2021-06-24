@@ -111,4 +111,4 @@ export const keyboardItems : CalcButton[] = [
 
 export const sortedKeyboardItems = keyboardItems.sort ((a,b) => a.order - b.order)
 
-export const themes = ["theme-light", "theme-dark", "theme-contrast"]
+export const themes = ["theme-dark", "theme-light", "theme-contrast"]

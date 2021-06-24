@@ -17,6 +17,10 @@ body, html {
     max-width: 500px;
 }
 
+.calculator--error .calculator-result span {
+    font-size: 25px !important;
+}
+
 .calculator-header {
     display: flex;
     margin: 20px 10px;
@@ -163,4 +167,14 @@ body, html {
     background-color: var(--key-background-2);
     width: 13px; height: 13px;
     transform: translate(0%, -50%);
+}
+
+@media (max-width: 700px) {
+    .app {
+        align-items: flex-start;
+    }
+
+    .calculator-keyboard {
+        height: 60vh;
+    }
 }

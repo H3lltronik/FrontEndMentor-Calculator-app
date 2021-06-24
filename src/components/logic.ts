@@ -2,10 +2,12 @@ import { evaluate } from 'mathjs'
 
 export const makeCalculatorLogic = (
     setPredicate: (a: any) => void, 
-    setText: (a: any) => void
+    setText: (a: any) => void,
+    setError: (a: boolean) => void,
     ) => {
-    return function (predicate: string|null, button: CalcButton) {
+    return function (predicate: string|null, button: CalcButton, error: boolean = false) {
         let { value, type, label } = button
+        if (error) setError (false)
         if (type == 'reset') {
             setPredicate (null); setText (`0`);
         } else if (type == 'delete') {
@@ -27,6 +29,7 @@ export const makeCalculatorLogic = (
                 setPredicate (result); setText (result);
             } catch (e) {
                 setText (e.message); setPredicate(null)
+                setError (true)
             }
         } else if (type == 'value') {
             if (!value) return
