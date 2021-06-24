@@ -9,6 +9,8 @@ let lastValue : any = null
 
 /**
  * Radio button switch-like styled
+ * @param onRadioChange - triggered when switching the radio to another state
+ * @param label - [optional] label for the radio input at the left
  * @param name - [optional] name for the radio input
  */
 export const SwitchLikeRadio : FC<SwitchLikeRadioProps> = (props) => {
